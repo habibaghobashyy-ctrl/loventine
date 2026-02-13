@@ -261,11 +261,14 @@
                 position: relative;
             ">Open for a surprise 🎁</button>
             
-            <div id="photoReveal" style="display: none; margin-top: 20px; animation: fadeIn 0.8s ease-out;">
+            <div class="celebration">💖🐠💖</div>
+        </div>
+
+        <div class="photo-screen" id="photoScreen" style="display: none; animation: fadeIn 0.8s ease-out;">
+            <h2 style="margin-top: 30px;">Love you 💕</h2>
+            <div style="margin-top: 20px;">
                 <img src="photo.png" alt="The Basbousa's" style="max-width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
             </div>
-            
-            <div class="celebration">💖🐠💖</div>
         </div>
     </div>
 
@@ -364,12 +367,12 @@
 
         // Surprise button functionality
         const surpriseBtn = document.getElementById('surpriseBtn');
-        const photoReveal = document.getElementById('photoReveal');
+        const photoScreen = document.getElementById('photoScreen');
 
         if (surpriseBtn) {
             surpriseBtn.addEventListener('click', function() {
-                photoReveal.style.display = 'block';
-                surpriseBtn.style.display = 'none';
+                successMessage.style.display = 'none';
+                photoScreen.style.display = 'block';
                 
                 // Create extra confetti when surprise is revealed
                 for (let i = 0; i < 50; i++) {
