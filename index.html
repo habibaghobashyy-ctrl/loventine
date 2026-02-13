@@ -245,6 +245,26 @@
             <h2 style="white-space: nowrap;">Basbousa said yes <span class="sparkle">✨</span></h2>
             <p style="white-space: nowrap;">Thank you for being the best basbousa ever. Love you 💕</p>
             <p>Can't wait to be your valentine always and forever habibi🐠 </p>
+            
+            <button id="surpriseBtn" style="
+                background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+                color: white;
+                padding: 12px 30px;
+                font-size: 18px;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-weight: 600;
+                margin-top: 20px;
+                box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+                transition: all 0.3s ease;
+                position: relative;
+            ">Open for a surprise 🎁</button>
+            
+            <div id="photoReveal" style="display: none; margin-top: 20px; animation: fadeIn 0.8s ease-out;">
+                <img src="photo.png" alt="The Basbousa's" style="max-width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+            </div>
+            
             <div class="celebration">💖🐠💖</div>
         </div>
     </div>
@@ -341,6 +361,34 @@
             e.preventDefault();
             moveNoButton();
         });
+
+        // Surprise button functionality
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        const photoReveal = document.getElementById('photoReveal');
+
+        if (surpriseBtn) {
+            surpriseBtn.addEventListener('click', function() {
+                photoReveal.style.display = 'block';
+                surpriseBtn.style.display = 'none';
+                
+                // Create extra confetti when surprise is revealed
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        createConfetti();
+                    }, i * 15);
+                }
+            });
+
+            surpriseBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 8px 25px rgba(255, 107, 157, 0.6)';
+            });
+
+            surpriseBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 5px 15px rgba(255, 107, 157, 0.4)';
+            });
+        }
     </script>
 </body>
 </html>
